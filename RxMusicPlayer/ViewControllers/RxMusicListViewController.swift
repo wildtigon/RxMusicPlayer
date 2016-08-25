@@ -47,14 +47,17 @@ class RxMusicListViewController: RxBaseViewController {
         tableView
             .rx_itemSelected
             .subscribeNext {
-                self.performSegueWithIdentifier("segue_list_detail", sender: self)
+                let vc = RxMusicDetailViewController.sharedInstance()
+
+                self.navigationController?.presentViewController(vc, animated: true, completion: nil)
+                // self.performSegueWithIdentifier("segue_list_detail", sender: self)
                 self.tableView.deselectRowAtIndexPath($0, animated: true) }
             .addDisposableTo(disposeBag)
 
-        tableView
-            .rx_modelSelected(RxMusic)
-            .subscribeNext { print("Tapped on: \($0)") }
-            .addDisposableTo(disposeBag)
+//        tableView
+//            .rx_modelSelected(RxMusic)
+//            .subscribeNext { print("Tapped on: \($0)") }
+//            .addDisposableTo(disposeBag)
 
     }
 

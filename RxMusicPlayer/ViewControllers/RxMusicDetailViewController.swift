@@ -12,6 +12,19 @@ import RxCocoa
 
 class RxMusicDetailViewController: RxBaseViewController {
 
+    static var vc: RxMusicDetailViewController!
+    static var token: dispatch_once_t = 0
+
+    // Single ton
+    static func sharedInstance() -> RxMusicDetailViewController {
+        dispatch_once(&token) {
+            print("Create new VC")
+            vc = UIStoryboard.init(name: "Music", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("RxMusicDetailViewController") as! RxMusicDetailViewController
+        }
+        print("Reusing VC")
+        return vc
+    }
+
     // IBOutlets
     @IBOutlet weak var hideButton: UIButton!
 
