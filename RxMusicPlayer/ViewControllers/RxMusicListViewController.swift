@@ -41,24 +41,16 @@ class RxMusicListViewController: RxBaseViewController {
         items
             .asObservable()
             .bindTo(tableView.rx_itemsWithCellIdentifier("musicListCell", cellType: RxMusicViewCell.self)) { (row, element, cell) in
-                cell.setData(element) }
+                cell.musicInfo = RxMusicViewModel(element) }
             .addDisposableTo(disposeBag)
 
         tableView
             .rx_itemSelected
             .subscribeNext {
                 let vc = RxMusicDetailViewController.sharedInstance()
-
                 self.navigationController?.presentViewController(vc, animated: true, completion: nil)
-                // self.performSegueWithIdentifier("segue_list_detail", sender: self)
                 self.tableView.deselectRowAtIndexPath($0, animated: true) }
             .addDisposableTo(disposeBag)
-
-//        tableView
-//            .rx_modelSelected(RxMusic)
-//            .subscribeNext { print("Tapped on: \($0)") }
-//            .addDisposableTo(disposeBag)
-
     }
 
     private func initIndicatorView() {
