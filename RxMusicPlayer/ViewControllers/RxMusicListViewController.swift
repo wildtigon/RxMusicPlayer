@@ -15,6 +15,9 @@ class RxMusicListViewController: RxBaseViewController {
     // IBOutlets
     @IBOutlet weak var tableView: UITableView!
 
+    // Variables
+    var items: Variable<[RxMusic]> = Variable([])
+
     // Constants
     let musicRequest = RxMusicModel.shareInstance.getMusic()
     let indicator = RxMusicIndicator.shareInstance
@@ -24,12 +27,19 @@ class RxMusicListViewController: RxBaseViewController {
         super.viewDidLoad()
         initNavigationBarWithText("RxPlayMusic")
         initIndicatorView()
-        initData()
+        initWidget()
     }
 
     // Functions
-    private func initData() {
+    private func initWidget() {
+        tableView.rowHeight = 57
+
         musicRequest
+            .bindTo(items)
+            .addDisposableTo(disposeBag)
+
+        items
+            .asObservable()
             .bindTo(tableView.rx_itemsWithCellIdentifier("musicListCell", cellType: RxMusicViewCell.self)) { (row, element, cell) in
                 cell.setData(element) }
             .addDisposableTo(disposeBag)
@@ -37,6 +47,7 @@ class RxMusicListViewController: RxBaseViewController {
         tableView
             .rx_itemSelected
             .subscribeNext {
+                self.performSegueWithIdentifier("segue_list_detail", sender: self)
                 self.tableView.deselectRowAtIndexPath($0, animated: true) }
             .addDisposableTo(disposeBag)
 
@@ -44,6 +55,7 @@ class RxMusicListViewController: RxBaseViewController {
             .rx_modelSelected(RxMusic)
             .subscribeNext { print("Tapped on: \($0)") }
             .addDisposableTo(disposeBag)
+
     }
 
     private func initIndicatorView() {
@@ -67,5 +79,13 @@ class RxMusicListViewController: RxBaseViewController {
 
     @objc private func handleTapIndicator() {
         print("tap tap")
+    }
+
+    // Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segue_list_detail" {
+            guard let vc = segue.destinationViewController as? RxMusicDetailViewController else { return }
+            vc.items = items
+        }
     }
 }

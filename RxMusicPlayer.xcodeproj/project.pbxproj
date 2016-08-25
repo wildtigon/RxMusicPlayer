@@ -24,6 +24,7 @@
 		D79BCF261D6EDC1A00A9CE5B /* RxMusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BCF251D6EDC1A00A9CE5B /* RxMusicModel.swift */; };
 		D79BCF291D6EDD6900A9CE5B /* RxMockyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BCF281D6EDD6900A9CE5B /* RxMockyJSON.swift */; };
 		D79BCF2C1D6EE74500A9CE5B /* RxMusicIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BCF2B1D6EE74500A9CE5B /* RxMusicIndicator.swift */; };
+		D79BCF301D6EF6B400A9CE5B /* RxMusicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BCF2F1D6EF6B400A9CE5B /* RxMusicDetailViewController.swift */; };
 		F24521ECE24A6768EB54BF7A /* Pods_RxMusicPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831BF70DB7D1FEFD0942B164 /* Pods_RxMusicPlayer.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		D79BCF251D6EDC1A00A9CE5B /* RxMusicModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxMusicModel.swift; path = Moya/RxMusicModel.swift; sourceTree = "<group>"; };
 		D79BCF281D6EDD6900A9CE5B /* RxMockyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxMockyJSON.swift; path = NetworkManagers/RxMockyJSON.swift; sourceTree = "<group>"; };
 		D79BCF2B1D6EE74500A9CE5B /* RxMusicIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxMusicIndicator.swift; path = CustomViews/RxMusicIndicator.swift; sourceTree = "<group>"; };
+		D79BCF2F1D6EF6B400A9CE5B /* RxMusicDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxMusicDetailViewController.swift; path = ViewControllers/RxMusicDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			children = (
 				D79BCF141D6ECEAC00A9CE5B /* RxBaseViewController.swift */,
 				D79BCF191D6ECF4F00A9CE5B /* RxMusicListViewController.swift */,
+				D79BCF2F1D6EF6B400A9CE5B /* RxMusicDetailViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				D79BCF201D6ED56700A9CE5B /* Constants.swift in Sources */,
 				D79BCEF31D6EC8FE00A9CE5B /* AppDelegate.swift in Sources */,
 				D79BCF1A1D6ECF4F00A9CE5B /* RxMusicListViewController.swift in Sources */,
+				D79BCF301D6EF6B400A9CE5B /* RxMusicDetailViewController.swift in Sources */,
 				D79BCF291D6EDD6900A9CE5B /* RxMockyJSON.swift in Sources */,
 				D79BCF261D6EDC1A00A9CE5B /* RxMusicModel.swift in Sources */,
 				D79BCF231D6ED67D00A9CE5B /* RxMusic.swift in Sources */,
