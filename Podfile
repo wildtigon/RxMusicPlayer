@@ -5,18 +5,18 @@
 
 target 'RxMusicPlayer' do
 pod 'DOUAudioStreamer', '0.2.11'
-    pod 'SDWebImage', '~> 3.8'
 
     pod 'RxSwift', '~> 2.6'
     pod 'RxCocoa', '~> 2.6'
     pod 'RxAlamofire', '~> 2.5'
     pod 'RxGesture', '~> 0.1'    
-pod "Moya-SwiftyJSONMapper/RxSwift"
-    pod 'SVProgressHUD', '~> 2.0'
     pod 'Moya/RxSwift'
+    pod 'Moya-ObjectMapper/RxSwift', '~> 1.3'
+
+    pod 'SVProgressHUD', '~> 2.0'
 
     pod 'EZSwiftExtensions', '~> 1.5'
-
-
+    pod 'SDWebImage', '~> 3.8'
+    pod 'NAKPlaybackIndicatorView', '~> 0.0'
 end
 
