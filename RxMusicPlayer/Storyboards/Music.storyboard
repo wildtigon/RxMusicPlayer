@@ -175,12 +175,12 @@
                                         </constraints>
                                         <state key="normal" image="menu"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06O-ST-DQP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06O-ST-DQP">
                                         <rect key="frame" x="66" y="12" width="282" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="BSU-cn-fu6"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -232,10 +232,6 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="83" height="64"/>
                                                 <state key="normal" image="shuffle_icon"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69g-L5-nSa">
-                                                <rect key="frame" x="83" y="0.0" width="83" height="64"/>
-                                                <state key="normal" image="prev_song"/>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCJ-gL-FXC">
                                                 <rect key="frame" x="166" y="0.0" width="82" height="64"/>
                                                 <state key="normal" image="big_play_button"/>
@@ -247,6 +243,10 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4d-ab-6E2">
                                                 <rect key="frame" x="331" y="0.0" width="83" height="64"/>
                                                 <state key="normal" image="more_icon"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69g-L5-nSa">
+                                                <rect key="frame" x="83" y="0.0" width="83" height="64"/>
+                                                <state key="normal" image="prev_song"/>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -297,7 +297,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="EDc-Eo-TKn" customClass="MusicSlider">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="EDc-Eo-TKn">
                                                 <rect key="frame" x="43" y="3" width="312" height="31"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -397,7 +397,22 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="albumImageView" destination="mym-Mk-sHA" id="JdJ-g3-cZt"/>
+                        <outlet property="backgroudImageView" destination="D7c-Mn-TU4" id="mZh-sl-yge"/>
+                        <outlet property="backgroudView" destination="2fd-Qo-4oi" id="L0n-I2-jaZ"/>
+                        <outlet property="beginTimeLabel" destination="lJ8-TT-sqO" id="PV4-EI-yd9"/>
+                        <outlet property="endTimeLabel" destination="dvS-mL-ILa" id="PBD-X0-PFo"/>
+                        <outlet property="favoriteButton" destination="pdr-x6-Gve" id="KQe-Sb-MKA"/>
                         <outlet property="hideButton" destination="4rV-D2-5Qu" id="hHb-FX-H8P"/>
+                        <outlet property="musicCycleButton" destination="VVc-AL-oV6" id="W8q-Ll-h0y"/>
+                        <outlet property="musicMenuButton" destination="b3r-B8-E41" id="5oq-fq-Jg6"/>
+                        <outlet property="musicNameLabel" destination="M8F-Nj-vdp" id="NEe-oL-UJr"/>
+                        <outlet property="musicSlider" destination="EDc-Eo-TKn" id="LJy-Jc-4Nd"/>
+                        <outlet property="musicTitleLabel" destination="06O-ST-DQP" id="6M6-fR-Lrk"/>
+                        <outlet property="musicToggleButton" destination="pCJ-gL-FXC" id="FKx-qO-Kb3"/>
+                        <outlet property="nextMusicButton" destination="96D-EI-4hE" id="Pm4-T7-HLr"/>
+                        <outlet property="previousMusicButton" destination="69g-L5-nSa" id="3P2-Na-aix"/>
+                        <outlet property="singerLabel" destination="LQm-3R-oeA" id="BN3-W1-g8n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ziC-EE-HKW" userLabel="First Responder" sceneMemberID="firstResponder"/>

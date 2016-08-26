@@ -48,6 +48,9 @@ class RxMusicListViewController: RxBaseViewController {
             .rx_itemSelected
             .subscribeNext {
                 let vc = RxMusicDetailViewController.sharedInstance()
+                vc.items = self.items
+                vc.specialIndex = $0.row
+
                 self.navigationController?.presentViewController(vc, animated: true, completion: nil)
                 self.tableView.deselectRowAtIndexPath($0, animated: true) }
             .addDisposableTo(disposeBag)
@@ -74,13 +77,5 @@ class RxMusicListViewController: RxBaseViewController {
 
     @objc private func handleTapIndicator() {
         print("tap tap")
-    }
-
-    // Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "segue_list_detail" {
-            guard let vc = segue.destinationViewController as? RxMusicDetailViewController else { return }
-            vc.items = items
-        }
     }
 }
