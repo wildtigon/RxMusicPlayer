@@ -234,7 +234,8 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCJ-gL-FXC">
                                                 <rect key="frame" x="166" y="0.0" width="82" height="64"/>
-                                                <state key="normal" image="big_play_button"/>
+                                                <state key="normal" image="big_pause_button"/>
+                                                <state key="selected" image="big_play_button"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="96D-EI-4hE">
                                                 <rect key="frame" x="248" y="0.0" width="83" height="64"/>
@@ -297,7 +298,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="EDc-Eo-TKn">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="EDc-Eo-TKn">
                                                 <rect key="frame" x="43" y="3" width="312" height="31"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -422,6 +423,7 @@
     </scenes>
     <resources>
         <image name="arrow_down" width="22" height="13"/>
+        <image name="big_pause_button" width="60" height="60"/>
         <image name="big_play_button" width="60" height="60"/>
         <image name="empty_heart" width="23" height="21"/>
         <image name="menu" width="25" height="17"/>
