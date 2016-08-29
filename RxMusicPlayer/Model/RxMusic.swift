@@ -16,7 +16,8 @@ struct RxMusic: Mappable {
     var cover = ""
     var artistName = ""
     var fileName = ""
-    var isFavorited = false
+    var isFavorite = false
+    var isPlaying = false
 
     init?(_ map: Map) { }
 
@@ -27,6 +28,6 @@ struct RxMusic: Mappable {
         cover <- map["pic"]
         artistName <- map["artist"]
         fileName <- map["file_name"]
-        isFavorited <- map["isFavorited"]
+        isFavorite <- map["isFavorited"]
     }
 }

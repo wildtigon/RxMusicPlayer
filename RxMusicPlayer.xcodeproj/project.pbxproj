@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D743EC6C1D74499500B73860 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D743EC6B1D74499500B73860 /* UIButton.swift */; };
 		D7888A981D703CB80043944B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7888A971D703CB80043944B /* UIView.swift */; };
 		D7888A9A1D704A7C0043944B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7888A991D704A7C0043944B /* String.swift */; };
 		D788983D1D6FEAB400F4A472 /* NSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D788983C1D6FEAB400F4A472 /* NSURL.swift */; };
@@ -39,6 +40,7 @@
 		072C79BCDBDFCEE854FFBBA1 /* Pods-RxMusicPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMusicPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxMusicPlayer/Pods-RxMusicPlayer.release.xcconfig"; sourceTree = "<group>"; };
 		831BF70DB7D1FEFD0942B164 /* Pods_RxMusicPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxMusicPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1FFE3DD060620A742A6BA9A /* Pods-RxMusicPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMusicPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxMusicPlayer/Pods-RxMusicPlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		D743EC6B1D74499500B73860 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButton.swift; path = Extensions/UIButton.swift; sourceTree = "<group>"; };
 		D7888A971D703CB80043944B /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = Extensions/UIView.swift; sourceTree = "<group>"; };
 		D7888A991D704A7C0043944B /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Extensions/String.swift; sourceTree = "<group>"; };
 		D788983C1D6FEAB400F4A472 /* NSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSURL.swift; path = Extensions/NSURL.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				D788983C1D6FEAB400F4A472 /* NSURL.swift */,
 				D7888A971D703CB80043944B /* UIView.swift */,
 				D7888A991D704A7C0043944B /* String.swift */,
+				D743EC6B1D74499500B73860 /* UIButton.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				D7888A9A1D704A7C0043944B /* String.swift in Sources */,
 				D79BCF1D1D6ED43F00A9CE5B /* RxMusicViewCell.swift in Sources */,
 				D79BCF151D6ECEAC00A9CE5B /* RxBaseViewController.swift in Sources */,
+				D743EC6C1D74499500B73860 /* UIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

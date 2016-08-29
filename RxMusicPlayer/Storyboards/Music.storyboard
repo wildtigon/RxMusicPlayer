@@ -39,7 +39,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkc-DQ-EFA">
-                                                    <rect key="frame" x="40" y="10" width="364" height="21"/>
+                                                    <rect key="frame" x="40" y="10" width="336" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="3a1-Yy-0Mo"/>
                                                     </constraints>
@@ -48,7 +48,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10c-rC-sig">
-                                                    <rect key="frame" x="40" y="31" width="364" height="15"/>
+                                                    <rect key="frame" x="40" y="31" width="336" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="rpS-WN-S1d"/>
                                                     </constraints>
@@ -64,24 +64,35 @@
                                                         <constraint firstAttribute="width" constant="40" id="GFu-71-pUt"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5n-8v-Eg1">
+                                                    <rect key="frame" x="388" y="21" width="14" height="14"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="14" id="QSi-j0-VlB"/>
+                                                        <constraint firstAttribute="height" constant="14" id="gHz-7d-o7p"/>
+                                                    </constraints>
+                                                    <state key="selected" image="red_heart"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="10c-rC-sig" firstAttribute="leading" secondItem="j3b-cN-yCG" secondAttribute="trailing" id="0UG-XF-V01"/>
                                                 <constraint firstItem="j3b-cN-yCG" firstAttribute="top" secondItem="rjo-Sc-VMx" secondAttribute="top" id="1oL-Yy-tbo"/>
                                                 <constraint firstAttribute="bottom" secondItem="yv4-Z6-GjB" secondAttribute="bottom" id="3tG-Gx-fWa"/>
                                                 <constraint firstItem="10c-rC-sig" firstAttribute="top" secondItem="tkc-DQ-EFA" secondAttribute="bottom" id="4ZA-Hi-qbO"/>
+                                                <constraint firstItem="i5n-8v-Eg1" firstAttribute="leading" secondItem="10c-rC-sig" secondAttribute="trailing" constant="12" id="FvJ-zf-VwF"/>
                                                 <constraint firstAttribute="bottom" secondItem="j3b-cN-yCG" secondAttribute="bottom" id="Qzw-af-kaO"/>
                                                 <constraint firstItem="tkc-DQ-EFA" firstAttribute="leading" secondItem="j3b-cN-yCG" secondAttribute="trailing" id="SRQ-LF-LpW"/>
+                                                <constraint firstItem="i5n-8v-Eg1" firstAttribute="leading" secondItem="tkc-DQ-EFA" secondAttribute="trailing" constant="12" id="UdJ-bu-d7B"/>
                                                 <constraint firstItem="yv4-Z6-GjB" firstAttribute="leading" secondItem="rjo-Sc-VMx" secondAttribute="leading" id="XGs-2J-6Wx"/>
-                                                <constraint firstAttribute="trailing" secondItem="tkc-DQ-EFA" secondAttribute="trailing" constant="10" id="YWh-6p-bwf"/>
+                                                <constraint firstAttribute="trailing" secondItem="i5n-8v-Eg1" secondAttribute="trailing" constant="12" id="diW-Co-oOF"/>
+                                                <constraint firstItem="i5n-8v-Eg1" firstAttribute="centerY" secondItem="rjo-Sc-VMx" secondAttribute="centerY" id="fSJ-wB-b39"/>
                                                 <constraint firstItem="j3b-cN-yCG" firstAttribute="leading" secondItem="rjo-Sc-VMx" secondAttribute="leading" id="jfF-yp-LD5"/>
-                                                <constraint firstAttribute="trailing" secondItem="10c-rC-sig" secondAttribute="trailing" constant="10" id="nM4-iq-hsc"/>
                                                 <constraint firstItem="tkc-DQ-EFA" firstAttribute="centerY" secondItem="rjo-Sc-VMx" secondAttribute="centerY" constant="-8" id="v8Z-NY-7oG"/>
                                                 <constraint firstItem="yv4-Z6-GjB" firstAttribute="top" secondItem="rjo-Sc-VMx" secondAttribute="top" id="x5E-UM-CpY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="musicArtistLabel" destination="10c-rC-sig" id="A0x-uN-TZz"/>
+                                            <outlet property="musicFavoriteLabel" destination="i5n-8v-Eg1" id="Rjl-IM-z2e"/>
                                             <outlet property="musicIndicator" destination="yv4-Z6-GjB" id="O1G-Zb-726"/>
                                             <outlet property="musicNumberLabel" destination="j3b-cN-yCG" id="Zle-p7-L0G"/>
                                             <outlet property="musicTitleLabel" destination="tkc-DQ-EFA" id="sak-hp-MXQ"/>
@@ -341,6 +352,7 @@
                                             <constraint firstAttribute="width" constant="40" id="iI9-jb-37n"/>
                                         </constraints>
                                         <state key="normal" image="empty_heart"/>
+                                        <state key="selected" image="red_heart"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8F-Nj-vdp">
                                         <rect key="frame" x="60" y="14" width="304" height="25"/>
@@ -431,6 +443,7 @@
         <image name="music_placeholder" width="308" height="308"/>
         <image name="next_song" width="20" height="28"/>
         <image name="prev_song" width="20" height="28"/>
+        <image name="red_heart" width="23" height="21"/>
         <image name="shuffle_icon" width="17" height="14"/>
     </resources>
 </document>

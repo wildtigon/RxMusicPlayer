@@ -16,7 +16,6 @@ enum MusicCycleType {
     case Shuffle
     case LoopSingle
     case LoopAll
-    case Normal
 }
 
 class RxMusicDetailViewController: RxBaseViewController {
@@ -60,8 +59,9 @@ class RxMusicDetailViewController: RxBaseViewController {
     @IBOutlet weak var nextMusicButton: UIButton!
 
     // Variables
-    weak var items: Variable<[RxMusic]>?
-    var currentMusic: RxMusic!
+    weak var itemsMusic: Variable<[RxMusicViewModel]>!
+
+    var currentMusic: RxMusicViewModel!
 
     var musicDurationTimer: NSTimer?
     var streamer: DOUAudioStreamer!
@@ -69,14 +69,27 @@ class RxMusicDetailViewController: RxBaseViewController {
 
     var isPlaying = false
 
-    var currentIndex = 0
+    var currentIndex: Int = 0 {
+        willSet {
+            if (currentMusic != nil) {
+                currentMusic.isPlaying.onNext(false)
+            }
+        }
+
+        didSet {
+            currentMusic = itemsMusic.value[currentIndex]
+        }
+    }
+
     var specialIndex = 0
 
     var kStatusContext: UInt8 = 1
     var kDurationContext: UInt8 = 1
     var kBufferingRatioContext: UInt8 = 1
 
-    let musicCycleType: MusicCycleType = .Normal
+    var bag: DisposeBag!
+
+    let musicCycleType: Variable<MusicCycleType> = Variable(.LoopAll)
 
     // Constants
     let musicIndicator = RxMusicIndicator.shareInstance
@@ -84,8 +97,7 @@ class RxMusicDetailViewController: RxBaseViewController {
     // Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        initVariable()
-        initRx()
+        initWidget()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -95,11 +107,13 @@ class RxMusicDetailViewController: RxBaseViewController {
 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-
         removeStreamerObserver()
+        bag = nil
     }
+}
 
-    // Music Functions
+// Music Behavior
+extension RxMusicDetailViewController {
     private func onSliderMusic(progress: Double) {
         if streamer == nil { return }
         if streamer.status == .Finished {
@@ -112,17 +126,14 @@ class RxMusicDetailViewController: RxBaseViewController {
     }
 
     private func playPreviousMusic() {
-        guard let musicCount = items?.value.count else {
-            print("Oops..Something wrong")
-            return
-        }
+        let musicCount = itemsMusic.value.count
 
         if musicCount == 1 {
             print("Just one song")
             return
         }
 
-        if musicCycleType == .Shuffle && musicCount > 2 {
+        if musicCycleType.value == .Shuffle && musicCount > 2 {
             // play shuffle
         } else {
             // play next song
@@ -137,17 +148,14 @@ class RxMusicDetailViewController: RxBaseViewController {
     }
 
     private func playNextMusic() {
-        guard let musicCount = items?.value.count else {
-            print("Oops..Something wrong")
-            return
-        }
+        let musicCount = itemsMusic.value.count
 
         if musicCount == 1 {
             print("Just one song")
             return
         }
 
-        if musicCycleType == .Shuffle && musicCount > 2 {
+        if musicCycleType.value == .Shuffle && musicCount > 2 {
             // play shuffle
         } else {
             // play next song
@@ -160,7 +168,10 @@ class RxMusicDetailViewController: RxBaseViewController {
 
         createStream()
     }
+}
 
+// Music Core
+extension RxMusicDetailViewController {
     private func createStream() {
         // init index
         if (specialIndex > 0) {
@@ -168,15 +179,12 @@ class RxMusicDetailViewController: RxBaseViewController {
             specialIndex = 0
         }
 
-        // init stream
-        guard let currentMusic = items?.value[currentIndex] else { return }
-        self.currentMusic = currentMusic
-
-        setupMusicWithCurrentMusic()
-        // loadPreviousAndNextMusicImage()
+        bindingUI()
 
         // init track
-        guard let soundFilePath = NSBundle.mainBundle().pathForResource(currentMusic.fileName, ofType: "mp3") else { return }
+        let filename = try? currentMusic.fileName.value()
+
+        guard let soundFilePath = NSBundle.mainBundle().pathForResource(filename, ofType: "mp3") else { return }
         let fileURL = NSURL(fileURLWithPath: soundFilePath)
 
         let track = RxTrack()
@@ -190,6 +198,86 @@ class RxMusicDetailViewController: RxBaseViewController {
         streamer.play()
     }
 
+    private func updateStatus() {
+        isPlaying = false
+        musicIndicator.state = .Stopped
+        switch streamer.status {
+        case .Playing:
+            currentMusic.isPlaying.onNext(true)
+            isPlaying = true
+
+            musicIndicator.state = .Playing
+
+            musicToggleButton.startDuangAnimation()
+            musicToggleButton.selected = false
+            break
+
+        case .Paused:
+            musicToggleButton.startDuangAnimation()
+            musicToggleButton.selected = true
+            currentMusic.isPlaying.onNext(false)
+            break
+
+        case .Idle:
+            break
+
+        case .Finished:
+            if musicCycleType.value == .LoopSingle {
+                streamer.play()
+            } else {
+                playNextMusic()
+            }
+            break
+
+        case .Buffering:
+            musicIndicator.state = .Playing
+            break
+
+        case .Error:
+            musicToggleButton.startDuangAnimation()
+            musicToggleButton.selected = true
+            break
+        }
+        updateMusicsCellsState()
+    }
+
+    private func timerAction() {
+
+    }
+
+    private func updateBufferingStatus() {
+
+    }
+
+    private func updateMusicsCellsState() {
+
+    }
+
+    private func invalidateDurationTimer() {
+        if musicDurationTimer != nil && musicDurationTimer!.valid {
+            musicDurationTimer?.invalidate()
+        }
+        musicDurationTimer = nil
+    }
+
+    private func updateSliderValue() {
+        if streamer == nil { return }
+        if streamer.status == .Finished { streamer.play() }
+        if streamer.duration == 0 {
+            musicSlider.setValue(0, animated: false)
+        } else {
+            if (streamer.currentTime >= streamer.duration) {
+                streamer.currentTime -= streamer.duration
+            }
+            let progress = Float(streamer.currentTime / streamer.duration)
+            musicSlider.setValue(progress, animated: true)
+            updateProgressLabelValue()
+        }
+    }
+}
+
+// Music Observer
+extension RxMusicDetailViewController {
     private func removeStreamerObserver() {
         if streamer != nil {
             streamer.removeObserver(self, forKeyPath: "status")
@@ -223,149 +311,48 @@ class RxMusicDetailViewController: RxBaseViewController {
             super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
         }
     }
+}
 
-    private func updateStatus() {
-        isPlaying = false
-        musicIndicator.state = .Stopped
-        switch streamer.status {
-        case .Playing:
-            isPlaying = true
-
-            musicIndicator.state = .Playing
-
-            musicToggleButton.startDuangAnimation()
-            musicToggleButton.selected = false
-            break
-
-        case .Paused:
-            musicToggleButton.startDuangAnimation()
-            musicToggleButton.selected = true
-            break
-
-        case .Idle:
-            break
-
-        case .Finished:
-            if musicCycleType == .LoopSingle {
-                streamer.play()
-            } else {
-                playNextMusic()
-            }
-            break
-
-        case .Buffering:
-            musicIndicator.state = .Playing
-            break
-
-        case .Error:
-            musicToggleButton.startDuangAnimation()
-            musicToggleButton.selected = true
-            break
-        }
-        updateMusicsCellsState()
-    }
-
-    private func timerAction() {
-
-    }
-
-    private func updateBufferingStatus() {
-
-    }
-
-    private func updateMusicsCellsState() {
-
-    }
-
-    private func setupMusicWithCurrentMusic() {
-        musicTitleLabel.text = currentMusic.name
-        singerLabel.text = currentMusic.artistName
-//        musicTitleLabel
-
-        setupBackground()
-    }
-
-    private func setupBackground() {
-        albumImageView.layer.cornerRadius = 7
-        albumImageView.layer.masksToBounds = true
-
-        // download image
-        let width = Int((Screen.WIDTH - 70) * 2)
-        let url = NSURL.qiniuImageCenter(currentMusic.cover, width, 0)
-
-        let imagePlaceHolder = UIImage(named: "music_placeholder")
-        albumImageView
-            .sd_setImageWithURL(url, placeholderImage: imagePlaceHolder, options: [.RefreshCached, .RetryFailed])
-
-        backgroudImageView
-            .sd_setImageWithURL(url, placeholderImage: imagePlaceHolder, options: [.RefreshCached, .RetryFailed])
-
-        // marking blur
-        if visualEffectView == nil {
-            let blurEffect = UIBlurEffect(style: .Light)
-            visualEffectView = UIVisualEffectView(effect: blurEffect)
-            visualEffectView.frame = view.bounds
-
-            backgroudView.addSubview(visualEffectView)
-            backgroudView.addSubview(visualEffectView)
-        }
-
-        backgroudImageView.startAnimating()
-        albumImageView.startAnimating()
-    }
-
-    private func checkMusicFavoritedIcon() {
-        if currentMusic.isFavorited {
-            favoriteButton.setImage(UIImage(named: "red_heart"), forState: .Normal)
-        } else {
-            favoriteButton.setImage(UIImage(named: "empty_heart"), forState: .Normal)
-        }
-    }
-
-    // Functions
-    private func initVariable() {
-        musicDurationTimer = NSTimer.scheduledTimerWithTimeInterval(0.4, target: self, selector: #selector(updateSliderValue), userInfo: nil, repeats: true)
-
-    }
-
-    private func invalidateDurationTimer() {
-        if musicDurationTimer != nil && musicDurationTimer!.valid {
-            musicDurationTimer?.invalidate()
-        }
-        musicDurationTimer = nil
-    }
-
-    @objc private func updateSliderValue() {
-        if streamer == nil { return }
-        if streamer.status == .Finished { streamer.play() }
-        if streamer.duration == 0 {
-            musicSlider.setValue(0, animated: false)
-        } else {
-            if (streamer.currentTime >= streamer.duration) {
-                streamer.currentTime -= streamer.duration
-            }
-            let progress = Float(streamer.currentTime / streamer.duration)
-            musicSlider.setValue(progress, animated: true)
-            updateProgressLabelValue()
-        }
-    }
-
+// UI
+extension RxMusicDetailViewController {
     private func updateProgressLabelValue() {
         beginTimeLabel.text = String.timeIntervalToMMSSFormat(streamer.currentTime)
         endTimeLabel.text = String.timeIntervalToMMSSFormat(streamer.duration)
     }
 
-    private func favoriteMusic() {
-        currentMusic.isFavorited = true
-        favoriteButton.setImage(UIImage(named: "red_heart"), forState: .Normal)
+    private func bindingUI() {
+        // Dispose all of observable
+        bag = nil
+        bag = DisposeBag()
+
+        // Binding UI
+        currentMusic.isFavorite
+            .asObservable()
+            .bindTo(favoriteButton.rx_selected)
+            .addDisposableTo(bag)
+
+        currentMusic.name
+            .bindTo(musicNameLabel.rx_text)
+            .addDisposableTo(bag)
+
+        currentMusic.artistName
+            .bindTo(singerLabel.rx_text)
+            .addDisposableTo(bag)
+
+        currentMusic.cover
+            .subscribeNext(setupBackground)
+            .addDisposableTo(bag)
+
+        Observable<IntegerLiteralType>
+            .interval(1, scheduler: MainScheduler.instance)
+            .map { _ in }
+            .subscribeNext (updateSliderValue)
+            .addDisposableTo(bag)
     }
 
-    private func unfavoriteMusic() {
-        currentMusic.isFavorited = false
-        favoriteButton.setImage(UIImage(named: "empty_heart"), forState: .Normal)
-    }
+    private func initWidget() {
+        musicTitleLabel.text = ""
 
-    private func initRx() {
         hideButton
             .rx_tap
             .subscribeNext {
@@ -376,15 +363,6 @@ class RxMusicDetailViewController: RxBaseViewController {
             .rx_tap
             .subscribeNext {
                 self.isPlaying ? self.streamer.pause() : self.streamer.play() }
-            .addDisposableTo(disposeBag)
-
-        favoriteButton
-            .rx_tap
-            .subscribeNext {
-                // do animation
-                self.favoriteButton.startDuangAnimation()
-                if self.currentMusic.isFavorited { self.unfavoriteMusic() }
-                else { self.favoriteMusic() } }
             .addDisposableTo(disposeBag)
 
         nextMusicButton
@@ -402,5 +380,84 @@ class RxMusicDetailViewController: RxBaseViewController {
             .map { Double($0) }
             .subscribeNext (onSliderMusic)
             .addDisposableTo(disposeBag)
+
+        musicCycleButton
+            .rx_tap
+            .map { self.musicCycleType.value }
+            .map {
+                switch $0 {
+                case .Shuffle:
+                    return .LoopAll
+                case .LoopAll:
+                    return .LoopSingle
+                default:
+                    return .Shuffle } }
+            .bindTo(musicCycleType)
+            .addDisposableTo(disposeBag)
+
+        // for nsuserdefault
+        musicCycleType
+            .asObservable()
+            .subscribeOn(MainScheduler.instance)
+            .subscribeNext {
+                switch $0 {
+                case .LoopSingle:
+                    self.musicCycleButton.setImageWithImageName("loop_single_icon")
+                    break
+                case .LoopAll:
+                    self.musicCycleButton.setImageWithImageName("loop_all_icon")
+                    break
+                default:
+                    self.musicCycleButton.setImageWithImageName("shuffle_icon")
+                    break } }
+            .addDisposableTo(disposeBag)
+
+        favoriteButton
+            .rx_tap
+            .map { !self.favoriteButton.selected }
+            .subscribeNext {
+                self.favoriteButton.startDuangAnimation()
+                self.currentMusic.isFavorite.onNext($0) }
+            .addDisposableTo(disposeBag)
+
+        albumImageView.layer.cornerRadius = 7
+        albumImageView.layer.masksToBounds = true
+    }
+
+    private func setupBackground(cover: String) {
+        let width = Int((Screen.WIDTH - 70) * 2)
+        let url = NSURL.qiniuImageCenter(cover, width, 0)
+
+        // download image
+        let imagePlaceHolder = UIImage(named: "music_placeholder")
+
+        backgroudImageView
+            .sd_setImageWithURL(url, placeholderImage: imagePlaceHolder, options: [.RefreshCached, .RetryFailed]) { (image, _, _, _) in
+                self.backgroudImageView.alpha = 0;
+                UIView.animateWithDuration(0.25, animations: {
+                    self.backgroudImageView.alpha = 1
+                })
+        }
+
+        albumImageView
+            .sd_setImageWithURL(url, placeholderImage: imagePlaceHolder, options: [.RefreshCached, .RetryFailed]) { (image, _, _, _) in
+                self.albumImageView.alpha = 0;
+                UIView.animateWithDuration(0.75, animations: {
+                    self.albumImageView.alpha = 1
+                })
+        }
+
+        // marking blur
+        if visualEffectView == nil {
+            let blurEffect = UIBlurEffect(style: .Light)
+            visualEffectView = UIVisualEffectView(effect: blurEffect)
+            visualEffectView.frame = view.bounds
+
+            backgroudView.addSubview(visualEffectView)
+            backgroudView.addSubview(visualEffectView)
+        }
+
+        backgroudImageView.startAnimating()
+        albumImageView.startAnimating()
     }
 }

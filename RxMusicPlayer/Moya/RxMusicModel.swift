@@ -16,12 +16,23 @@ struct RxMusicModel {
 
     private init() { provider = RxMoyaProvider<RxMockyJSON>() }
 
-    internal func getMusic() -> Observable<[RxMusic]> {
+    internal func getMusic() -> Observable<[RxMusicViewModel]> {
         return provider
             .request(RxMockyJSON.Music())
             .debug()
             .timeout(5, scheduler: MainScheduler.instance)
             .retry(3)
             .mapArray(RxMusic)
+            .map { // Temp
+                let result: NSMutableArray = []
+                for item in $0 {
+                    let addItem = RxMusicViewModel(item)
+                    if item.name == "letter song" {
+                        addItem.isFavorite.onNext(true)
+                    }
+                    result.addObject(addItem)
+                }
+
+                return (result as NSArray) as! [RxMusicViewModel] }
     }
 }
