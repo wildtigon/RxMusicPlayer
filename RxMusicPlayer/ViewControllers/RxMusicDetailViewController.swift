@@ -63,7 +63,6 @@ class RxMusicDetailViewController: RxBaseViewController {
 
     var currentMusic: RxMusicViewModel!
 
-    var musicDurationTimer: NSTimer?
     var streamer: DOUAudioStreamer!
     var visualEffectView: UIVisualEffectView!
 
@@ -125,7 +124,7 @@ extension RxMusicDetailViewController {
         updateProgressLabelValue()
     }
 
-    private func playPreviousMusic() {
+    func playPreviousMusic() {
         let musicCount = itemsMusic.value.count
 
         if musicCount == 1 {
@@ -147,7 +146,7 @@ extension RxMusicDetailViewController {
         createStream()
     }
 
-    private func playNextMusic() {
+    internal func playNextMusic() {
         let musicCount = itemsMusic.value.count
 
         if musicCount == 1 {
@@ -182,9 +181,13 @@ extension RxMusicDetailViewController {
         bindingUI()
 
         // init track
-        let filename = try? currentMusic.fileName.value()
+        currentMusic.fileName
+            .subscribeNext(playMusicWithURL)
+            .addDisposableTo(disposeBag)
+    }
 
-        guard let soundFilePath = NSBundle.mainBundle().pathForResource(filename, ofType: "mp3") else { return }
+    private func playMusicWithURL(url: String) {
+        guard let soundFilePath = NSBundle.mainBundle().pathForResource(url, ofType: "mp3") else { return }
         let fileURL = NSURL(fileURLWithPath: soundFilePath)
 
         let track = RxTrack()
@@ -253,13 +256,6 @@ extension RxMusicDetailViewController {
 
     }
 
-    private func invalidateDurationTimer() {
-        if musicDurationTimer != nil && musicDurationTimer!.valid {
-            musicDurationTimer?.invalidate()
-        }
-        musicDurationTimer = nil
-    }
-
     private func updateSliderValue() {
         if streamer == nil { return }
         if streamer.status == .Finished { streamer.play() }
@@ -321,7 +317,7 @@ extension RxMusicDetailViewController {
     }
 
     private func bindingUI() {
-        // Dispose all of observable
+        // Dispose all observables
         bag = nil
         bag = DisposeBag()
 

@@ -19,6 +19,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    override func remoteControlReceivedWithEvent(event: UIEvent?) {
+        guard let event = event else { return }
+
+        if event.type == .RemoteControl {
+            switch event.subtype {
+            case .RemoteControlPlay:
+                RxMusicDetailViewController.sharedInstance().streamer.play()
+            case .RemoteControlPause:
+                RxMusicDetailViewController.sharedInstance().streamer.pause()
+            case .RemoteControlStop:
+                RxMusicDetailViewController.sharedInstance().streamer.stop()
+            case .RemoteControlNextTrack:
+                RxMusicDetailViewController.sharedInstance().playNextMusic()
+            case .RemoteControlPreviousTrack:
+                RxMusicDetailViewController.sharedInstance().playPreviousMusic()
+            case .RemoteControlBeginSeekingBackward:
+                break
+            case .RemoteControlEndSeekingBackward:
+                break
+            case .RemoteControlBeginSeekingForward:
+                break
+            case .RemoteControlEndSeekingForward:
+                break
+            default:
+                break
+            }
+        }
+    }
+
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

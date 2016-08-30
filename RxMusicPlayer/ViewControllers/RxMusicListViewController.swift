@@ -19,7 +19,6 @@ class RxMusicListViewController: RxBaseViewController {
     var itemsMusic: Variable<[RxMusicViewModel]> = Variable([])
 
     // Constants
-    let musicRequest = RxMusicModel.shareInstance.getMusic()
     let indicator = RxMusicIndicator.shareInstance
 
     // Life cycles
@@ -34,7 +33,8 @@ class RxMusicListViewController: RxBaseViewController {
     private func initWidget() {
         tableView.rowHeight = 57
 
-        musicRequest
+        RxMusicModel.shareInstance
+            .getMusic()
             .bindTo(itemsMusic)
             .addDisposableTo(disposeBag)
 
@@ -77,10 +77,5 @@ class RxMusicListViewController: RxBaseViewController {
 
     @objc private func handleTapIndicator() {
         print("tap tap")
-        let array = itemsMusic.value
-
-        for item in array {
-            print("Item: \(try! item.name.value()) isFavorite: \(try! item.isFavorite.value())")
-        }
     }
 }
