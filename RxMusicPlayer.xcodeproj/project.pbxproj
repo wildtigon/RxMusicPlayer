@@ -19,7 +19,6 @@
 		D79BCF0B1D6ECB3A00A9CE5B /* 1770040300_2031329_l.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D79BCF071D6ECB3A00A9CE5B /* 1770040300_2031329_l.mp3 */; };
 		D79BCF0C1D6ECB3A00A9CE5B /* 1770059653_2050944_l.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D79BCF081D6ECB3A00A9CE5B /* 1770059653_2050944_l.mp3 */; };
 		D79BCF0D1D6ECB3A00A9CE5B /* 1771694697_4194836_l.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D79BCF091D6ECB3A00A9CE5B /* 1771694697_4194836_l.mp3 */; };
-		D79BCF0F1D6ECB4200A9CE5B /* music_list.json in Resources */ = {isa = PBXBuildFile; fileRef = D79BCF0E1D6ECB4200A9CE5B /* music_list.json */; };
 		D79BCF151D6ECEAC00A9CE5B /* RxBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BCF141D6ECEAC00A9CE5B /* RxBaseViewController.swift */; };
 		D79BCF181D6ECEED00A9CE5B /* Music.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79BCF171D6ECEED00A9CE5B /* Music.storyboard */; };
 		D79BCF1A1D6ECF4F00A9CE5B /* RxMusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BCF191D6ECF4F00A9CE5B /* RxMusicListViewController.swift */; };
@@ -54,7 +53,6 @@
 		D79BCF071D6ECB3A00A9CE5B /* 1770040300_2031329_l.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1770040300_2031329_l.mp3; sourceTree = "<group>"; };
 		D79BCF081D6ECB3A00A9CE5B /* 1770059653_2050944_l.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1770059653_2050944_l.mp3; sourceTree = "<group>"; };
 		D79BCF091D6ECB3A00A9CE5B /* 1771694697_4194836_l.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1771694697_4194836_l.mp3; sourceTree = "<group>"; };
-		D79BCF0E1D6ECB4200A9CE5B /* music_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = music_list.json; sourceTree = "<group>"; };
 		D79BCF141D6ECEAC00A9CE5B /* RxBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxBaseViewController.swift; path = ViewControllers/RxBaseViewController.swift; sourceTree = "<group>"; };
 		D79BCF171D6ECEED00A9CE5B /* Music.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Music.storyboard; path = Storyboards/Music.storyboard; sourceTree = "<group>"; };
 		D79BCF191D6ECF4F00A9CE5B /* RxMusicListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxMusicListViewController.swift; path = ViewControllers/RxMusicListViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 		D79BCF041D6ECAF600A9CE5B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D79BCF0E1D6ECB4200A9CE5B /* music_list.json */,
 				D79BCF051D6ECB2B00A9CE5B /* Music */,
 				D79BCEF91D6EC8FE00A9CE5B /* Assets.xcassets */,
 			);
@@ -313,7 +310,6 @@
 				D79BCEFD1D6EC8FE00A9CE5B /* LaunchScreen.storyboard in Resources */,
 				D79BCF0A1D6ECB3A00A9CE5B /* asd.mp3 in Resources */,
 				D79BCF0B1D6ECB3A00A9CE5B /* 1770040300_2031329_l.mp3 in Resources */,
-				D79BCF0F1D6ECB4200A9CE5B /* music_list.json in Resources */,
 				D79BCF0D1D6ECB3A00A9CE5B /* 1771694697_4194836_l.mp3 in Resources */,
 				D79BCEFA1D6EC8FE00A9CE5B /* Assets.xcassets in Resources */,
 				D79BCF0C1D6ECB3A00A9CE5B /* 1770059653_2050944_l.mp3 in Resources */,
