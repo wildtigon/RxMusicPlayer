@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import DOUAudioStreamer
 import SDWebImage
+import MediaPlayer
 
 enum MusicCycleType {
     case Shuffle

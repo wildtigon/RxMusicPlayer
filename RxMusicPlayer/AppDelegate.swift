@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
+        // Firebase
+        FIRApp.configure()
+
+        // Remote controls
+        UIApplication
+            .sharedApplication()
+            .beginReceivingRemoteControlEvents()
+
+        becomeFirstResponder()
+        return true
+    }
+
+    override func canBecomeFirstResponder() -> Bool {
         return true
     }
 

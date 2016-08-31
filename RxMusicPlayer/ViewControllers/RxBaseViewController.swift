@@ -9,9 +9,10 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import IBAnimatable
 import NAKPlaybackIndicatorView
 
-class RxBaseViewController: UIViewController {
+class RxBaseViewController: AnimatableViewController {
 
     // Constant
     let disposeBag = DisposeBag()
