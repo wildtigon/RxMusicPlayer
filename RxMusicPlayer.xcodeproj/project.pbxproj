@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F3E78D8650010BEA747BF1D /* Pods_RxMusicPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC61925319A1E83D3F4CC4DE /* Pods_RxMusicPlayer.framework */; };
 		D729E19F1D768A7400358501 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D729E19E1D768A7400358501 /* GoogleService-Info.plist */; };
 		D729E1A11D768BB300358501 /* RxLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D729E1A01D768BB300358501 /* RxLoginViewController.swift */; };
 		D729E1A31D768DED00358501 /* RxRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D729E1A21D768DED00358501 /* RxRegisterViewController.swift */; };
@@ -37,13 +38,10 @@
 		D79BCF331D6F01BC00A9CE5B /* RxMusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BCF321D6F01BC00A9CE5B /* RxMusicViewModel.swift */; };
 		D79BCF371D6F045000A9CE5B /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BCF351D6F045000A9CE5B /* Operators.swift */; };
 		D79BCF381D6F045000A9CE5B /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BCF361D6F045000A9CE5B /* ObservableType.swift */; };
-		F24521ECE24A6768EB54BF7A /* Pods_RxMusicPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831BF70DB7D1FEFD0942B164 /* Pods_RxMusicPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		072C79BCDBDFCEE854FFBBA1 /* Pods-RxMusicPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMusicPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxMusicPlayer/Pods-RxMusicPlayer.release.xcconfig"; sourceTree = "<group>"; };
-		831BF70DB7D1FEFD0942B164 /* Pods_RxMusicPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxMusicPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1FFE3DD060620A742A6BA9A /* Pods-RxMusicPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMusicPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxMusicPlayer/Pods-RxMusicPlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		93D965374FD5CF58D479CE8B /* Pods-RxMusicPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMusicPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxMusicPlayer/Pods-RxMusicPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		D729E19E1D768A7400358501 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D729E1A01D768BB300358501 /* RxLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxLoginViewController.swift; path = ViewControllers/RxLoginViewController.swift; sourceTree = "<group>"; };
 		D729E1A21D768DED00358501 /* RxRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxRegisterViewController.swift; path = ViewControllers/RxRegisterViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +74,8 @@
 		D79BCF321D6F01BC00A9CE5B /* RxMusicViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxMusicViewModel.swift; path = ViewModel/RxMusicViewModel.swift; sourceTree = "<group>"; };
 		D79BCF351D6F045000A9CE5B /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		D79BCF361D6F045000A9CE5B /* ObservableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
+		EC61925319A1E83D3F4CC4DE /* Pods_RxMusicPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxMusicPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFF749C433A8565C97241BE0 /* Pods-RxMusicPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMusicPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxMusicPlayer/Pods-RxMusicPlayer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,26 +83,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F24521ECE24A6768EB54BF7A /* Pods_RxMusicPlayer.framework in Frameworks */,
+				5F3E78D8650010BEA747BF1D /* Pods_RxMusicPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		063A5EEFEF6901BB6F30E99D /* Pods */ = {
+		3B7FF69E30E37FC42DDE97C3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A1FFE3DD060620A742A6BA9A /* Pods-RxMusicPlayer.debug.xcconfig */,
-				072C79BCDBDFCEE854FFBBA1 /* Pods-RxMusicPlayer.release.xcconfig */,
+				93D965374FD5CF58D479CE8B /* Pods-RxMusicPlayer.debug.xcconfig */,
+				EFF749C433A8565C97241BE0 /* Pods-RxMusicPlayer.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		4156B0D41E3ADA1A10278DB2 /* Frameworks */ = {
+		89754286B13CAF0E39533C41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				831BF70DB7D1FEFD0942B164 /* Pods_RxMusicPlayer.framework */,
+				EC61925319A1E83D3F4CC4DE /* Pods_RxMusicPlayer.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,8 +112,8 @@
 			children = (
 				D79BCEF11D6EC8FE00A9CE5B /* RxMusicPlayer */,
 				D79BCEF01D6EC8FD00A9CE5B /* Products */,
-				063A5EEFEF6901BB6F30E99D /* Pods */,
-				4156B0D41E3ADA1A10278DB2 /* Frameworks */,
+				3B7FF69E30E37FC42DDE97C3 /* Pods */,
+				89754286B13CAF0E39533C41 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -266,12 +266,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D79BCF011D6EC8FE00A9CE5B /* Build configuration list for PBXNativeTarget "RxMusicPlayer" */;
 			buildPhases = (
-				C9444A641B7B4C718AB13DB2 /* Check Pods Manifest.lock */,
+				B8965FD941640A2F5EC5EF4F /* [CP] Check Pods Manifest.lock */,
 				D79BCEEB1D6EC8FD00A9CE5B /* Sources */,
 				D79BCEEC1D6EC8FD00A9CE5B /* Frameworks */,
 				D79BCEED1D6EC8FD00A9CE5B /* Resources */,
-				524E5230DB650EC960395525 /* Embed Pods Frameworks */,
-				19E9765D3868778926BD1A0A /* Copy Pods Resources */,
+				6EEDD2CBAF1D72EA10E32F32 /* [CP] Embed Pods Frameworks */,
+				8EDB3515B2A1D03EE9E844C6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -340,29 +340,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		19E9765D3868778926BD1A0A /* Copy Pods Resources */ = {
+		6EEDD2CBAF1D72EA10E32F32 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxMusicPlayer/Pods-RxMusicPlayer-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		524E5230DB650EC960395525 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,19 +355,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxMusicPlayer/Pods-RxMusicPlayer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C9444A641B7B4C718AB13DB2 /* Check Pods Manifest.lock */ = {
+		8EDB3515B2A1D03EE9E844C6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxMusicPlayer/Pods-RxMusicPlayer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8965FD941640A2F5EC5EF4F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -516,7 +516,7 @@
 		};
 		D79BCF021D6EC8FE00A9CE5B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1FFE3DD060620A742A6BA9A /* Pods-RxMusicPlayer.debug.xcconfig */;
+			baseConfigurationReference = 93D965374FD5CF58D479CE8B /* Pods-RxMusicPlayer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RxMusicPlayer/Info.plist;
@@ -529,7 +529,7 @@
 		};
 		D79BCF031D6EC8FE00A9CE5B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 072C79BCDBDFCEE854FFBBA1 /* Pods-RxMusicPlayer.release.xcconfig */;
+			baseConfigurationReference = EFF749C433A8565C97241BE0 /* Pods-RxMusicPlayer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RxMusicPlayer/Info.plist;

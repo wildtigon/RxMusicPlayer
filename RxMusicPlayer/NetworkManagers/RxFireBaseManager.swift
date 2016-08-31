@@ -23,9 +23,6 @@ class RxFireBaseManager {
         return NopDisposable.instance
       }
 
-      let errorInputValue = NSError(domain: "Error input value", code: 1, userInfo: nil)
-      observer.onError(errorInputValue)
-
       FIRAuth.auth()?.signInWithEmail(email, password: pass, completion: { user, error in
         if error != nil {
           observer.onError(error!)
@@ -40,7 +37,7 @@ class RxFireBaseManager {
         }
       })
       return AnonymousDisposable() { }
-    }.retry(10)
+    }
   }
 
   internal func logout() -> Observable<Void> {
