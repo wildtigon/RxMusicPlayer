@@ -11,6 +11,7 @@
 		D729E1A11D768BB300358501 /* RxLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D729E1A01D768BB300358501 /* RxLoginViewController.swift */; };
 		D729E1A31D768DED00358501 /* RxRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D729E1A21D768DED00358501 /* RxRegisterViewController.swift */; };
 		D73BE7CA1D76D16E00E1C041 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73BE7C91D76D16E00E1C041 /* UITextField.swift */; };
+		D73BE7CC1D76DA7E00E1C041 /* RxFireBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73BE7CB1D76DA7E00E1C041 /* RxFireBaseManager.swift */; };
 		D743EC6C1D74499500B73860 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D743EC6B1D74499500B73860 /* UIButton.swift */; };
 		D7888A981D703CB80043944B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7888A971D703CB80043944B /* UIView.swift */; };
 		D7888A9A1D704A7C0043944B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7888A991D704A7C0043944B /* String.swift */; };
@@ -47,6 +48,7 @@
 		D729E1A01D768BB300358501 /* RxLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxLoginViewController.swift; path = ViewControllers/RxLoginViewController.swift; sourceTree = "<group>"; };
 		D729E1A21D768DED00358501 /* RxRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxRegisterViewController.swift; path = ViewControllers/RxRegisterViewController.swift; sourceTree = "<group>"; };
 		D73BE7C91D76D16E00E1C041 /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextField.swift; path = Extensions/UITextField.swift; sourceTree = "<group>"; };
+		D73BE7CB1D76DA7E00E1C041 /* RxFireBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxFireBaseManager.swift; path = NetworkManagers/RxFireBaseManager.swift; sourceTree = "<group>"; };
 		D743EC6B1D74499500B73860 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButton.swift; path = Extensions/UIButton.swift; sourceTree = "<group>"; };
 		D7888A971D703CB80043944B /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = Extensions/UIView.swift; sourceTree = "<group>"; };
 		D7888A991D704A7C0043944B /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Extensions/String.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				D79BCF281D6EDD6900A9CE5B /* RxMockyJSON.swift */,
+				D73BE7CB1D76DA7E00E1C041 /* RxFireBaseManager.swift */,
 			);
 			name = NetworkManagers;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				D78898411D6FF8A100F4A472 /* RxTrack.swift in Sources */,
 				D73BE7CA1D76D16E00E1C041 /* UITextField.swift in Sources */,
 				D788983D1D6FEAB400F4A472 /* NSURL.swift in Sources */,
+				D73BE7CC1D76DA7E00E1C041 /* RxFireBaseManager.swift in Sources */,
 				D79BCF201D6ED56700A9CE5B /* Constants.swift in Sources */,
 				D79BCEF31D6EC8FE00A9CE5B /* AppDelegate.swift in Sources */,
 				D79BCF1A1D6ECF4F00A9CE5B /* RxMusicListViewController.swift in Sources */,
