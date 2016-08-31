@@ -27,20 +27,27 @@ class RxLoginViewController: RxBaseViewController {
     initRx()
 
     // Mock data
-    tfEmail.text = "wildtigon@gmail.coms"
+    tfEmail.text = "nguyentiendat7993@gmail.com"
     tfPassword.text = "thattinh"
   }
 }
 //Firebase
 extension RxLoginViewController {
-  private func onLoginSuccess(user: FIRUser) {
-    performSegueWithIdentifier("segue_login_musiclist", sender: self)
+  private func loginFireBase() {
+    RxFireBaseManager
+      .sharedInstance
+      .login(self.tfEmail.text, self.tfPassword.text)
+      .subscribe(
+        onNext: { user in
+          self.performSegueWithIdentifier("segue_login_musiclist", sender: self)
+        },
+        onError: { print("onError: \($0)") })
+      .addDisposableTo(disposeBag)
   }
 }
 
 //Reactive
 extension RxLoginViewController {
-
   private func initRx() {
     // Shake when error
     tfEmail
@@ -78,21 +85,15 @@ extension RxLoginViewController {
     // Tap Event
     btnSignIn
       .rx_tap
-      .subscribeNext (dismissTextField)
+      .subscribeNext(dismissTextField)
       .addDisposableTo(disposeBag)
 
     btnSignIn
       .rx_tap
-      .map { self.tfEmail.isEmail
-        && self.tfPassword.textLength > 6 }
+      .map { self.tfEmail.isEmail && self.tfPassword.textLength > 6 }
       .filter { $0 == true }
-      .map { _ in (self.tfEmail.text, self.tfPassword.text) }
-      .flatMap(RxFireBaseManager.sharedInstance.login)
-      .subscribe(
-        onNext: (onLoginSuccess),
-        onError: { print("onError: \($0)") },
-        onCompleted: { print("onCompleted") },
-        onDisposed: { print("onDisposed") })
+      .map { _ in }
+      .subscribeNext(loginFireBase)
       .addDisposableTo(disposeBag)
   }
 
