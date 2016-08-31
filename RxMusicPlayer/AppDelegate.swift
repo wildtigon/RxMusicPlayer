@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
+        // Firebase
+        FIRApp.configure()
+
+        // Remote controls
+        UIApplication
+            .sharedApplication()
+            .beginReceivingRemoteControlEvents()
+
+        becomeFirstResponder()
         return true
+    }
+
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+
+    override func remoteControlReceivedWithEvent(event: UIEvent?) {
+        guard let event = event else { return }
+
+        if event.type == .RemoteControl {
+            switch event.subtype {
+            case .RemoteControlPlay:
+                RxMusicDetailViewController.sharedInstance().streamer.play()
+            case .RemoteControlPause:
+                RxMusicDetailViewController.sharedInstance().streamer.pause()
+            case .RemoteControlStop:
+                RxMusicDetailViewController.sharedInstance().streamer.stop()
+            case .RemoteControlNextTrack:
+                RxMusicDetailViewController.sharedInstance().playNextMusic()
+            case .RemoteControlPreviousTrack:
+                RxMusicDetailViewController.sharedInstance().playPreviousMusic()
+            case .RemoteControlBeginSeekingBackward:
+                break
+            case .RemoteControlEndSeekingBackward:
+                break
+            case .RemoteControlBeginSeekingForward:
+                break
+            case .RemoteControlEndSeekingForward:
+                break
+            default:
+                break
+            }
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {

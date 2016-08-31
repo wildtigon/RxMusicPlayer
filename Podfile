@@ -18,5 +18,10 @@ pod 'DOUAudioStreamer', '0.2.11'
     pod 'EZSwiftExtensions', '~> 1.5'
     pod 'SDWebImage', '~> 3.8'
     pod 'NAKPlaybackIndicatorView', '~> 0.0'
+    
+    pod 'Firebase'
+    pod 'FirebaseAuth', '~> 3.0'
+    
+    pod 'IBAnimatable', '~> 2.6'
 end
 

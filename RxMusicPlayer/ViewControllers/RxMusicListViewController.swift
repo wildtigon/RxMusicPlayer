@@ -16,10 +16,9 @@ class RxMusicListViewController: RxBaseViewController {
     @IBOutlet weak var tableView: UITableView!
 
     // Variables
-    var items: Variable<[RxMusic]> = Variable([])
+    var itemsMusic: Variable<[RxMusicViewModel]> = Variable([])
 
     // Constants
-    let musicRequest = RxMusicModel.shareInstance.getMusic()
     let indicator = RxMusicIndicator.shareInstance
 
     // Life cycles
@@ -34,22 +33,23 @@ class RxMusicListViewController: RxBaseViewController {
     private func initWidget() {
         tableView.rowHeight = 57
 
-        musicRequest
-            .bindTo(items)
+        RxMusicModel.shareInstance
+            .getMusic()
+            .bindTo(itemsMusic)
             .addDisposableTo(disposeBag)
 
-        items
+        itemsMusic
             .asObservable()
             .bindTo(tableView.rx_itemsWithCellIdentifier("musicListCell", cellType: RxMusicViewCell.self)) { (row, element, cell) in
-                cell.musicInfo = RxMusicViewModel(element) }
+                cell.musicInfo = element }
             .addDisposableTo(disposeBag)
 
         tableView
             .rx_itemSelected
             .subscribeNext {
                 let vc = RxMusicDetailViewController.sharedInstance()
-                vc.items = self.items
-                vc.specialIndex = $0.row
+                vc.itemsMusic = self.itemsMusic
+                vc.currentIndex = $0.row
 
                 self.navigationController?.presentViewController(vc, animated: true, completion: nil)
                 self.tableView.deselectRowAtIndexPath($0, animated: true) }

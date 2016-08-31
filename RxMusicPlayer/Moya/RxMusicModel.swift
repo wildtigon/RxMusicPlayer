@@ -16,12 +16,13 @@ struct RxMusicModel {
 
     private init() { provider = RxMoyaProvider<RxMockyJSON>() }
 
-    internal func getMusic() -> Observable<[RxMusic]> {
+    internal func getMusic() -> Observable<[RxMusicViewModel]> {
         return provider
             .request(RxMockyJSON.Music())
             .debug()
             .timeout(5, scheduler: MainScheduler.instance)
             .retry(3)
             .mapArray(RxMusic)
+            .map { $0.map { RxMusicViewModel($0) } }
     }
 }

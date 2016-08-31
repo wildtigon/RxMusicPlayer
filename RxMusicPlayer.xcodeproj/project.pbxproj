@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D729E19F1D768A7400358501 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D729E19E1D768A7400358501 /* GoogleService-Info.plist */; };
+		D729E1A11D768BB300358501 /* RxLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D729E1A01D768BB300358501 /* RxLoginViewController.swift */; };
+		D729E1A31D768DED00358501 /* RxRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D729E1A21D768DED00358501 /* RxRegisterViewController.swift */; };
+		D73BE7CA1D76D16E00E1C041 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73BE7C91D76D16E00E1C041 /* UITextField.swift */; };
+		D73BE7CC1D76DA7E00E1C041 /* RxFireBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73BE7CB1D76DA7E00E1C041 /* RxFireBaseManager.swift */; };
+		D743EC6C1D74499500B73860 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D743EC6B1D74499500B73860 /* UIButton.swift */; };
 		D7888A981D703CB80043944B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7888A971D703CB80043944B /* UIView.swift */; };
 		D7888A9A1D704A7C0043944B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7888A991D704A7C0043944B /* String.swift */; };
 		D788983D1D6FEAB400F4A472 /* NSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D788983C1D6FEAB400F4A472 /* NSURL.swift */; };
@@ -18,7 +24,6 @@
 		D79BCF0B1D6ECB3A00A9CE5B /* 1770040300_2031329_l.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D79BCF071D6ECB3A00A9CE5B /* 1770040300_2031329_l.mp3 */; };
 		D79BCF0C1D6ECB3A00A9CE5B /* 1770059653_2050944_l.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D79BCF081D6ECB3A00A9CE5B /* 1770059653_2050944_l.mp3 */; };
 		D79BCF0D1D6ECB3A00A9CE5B /* 1771694697_4194836_l.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D79BCF091D6ECB3A00A9CE5B /* 1771694697_4194836_l.mp3 */; };
-		D79BCF0F1D6ECB4200A9CE5B /* music_list.json in Resources */ = {isa = PBXBuildFile; fileRef = D79BCF0E1D6ECB4200A9CE5B /* music_list.json */; };
 		D79BCF151D6ECEAC00A9CE5B /* RxBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BCF141D6ECEAC00A9CE5B /* RxBaseViewController.swift */; };
 		D79BCF181D6ECEED00A9CE5B /* Music.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79BCF171D6ECEED00A9CE5B /* Music.storyboard */; };
 		D79BCF1A1D6ECF4F00A9CE5B /* RxMusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BCF191D6ECF4F00A9CE5B /* RxMusicListViewController.swift */; };
@@ -39,6 +44,12 @@
 		072C79BCDBDFCEE854FFBBA1 /* Pods-RxMusicPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMusicPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxMusicPlayer/Pods-RxMusicPlayer.release.xcconfig"; sourceTree = "<group>"; };
 		831BF70DB7D1FEFD0942B164 /* Pods_RxMusicPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxMusicPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1FFE3DD060620A742A6BA9A /* Pods-RxMusicPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMusicPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxMusicPlayer/Pods-RxMusicPlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		D729E19E1D768A7400358501 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D729E1A01D768BB300358501 /* RxLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxLoginViewController.swift; path = ViewControllers/RxLoginViewController.swift; sourceTree = "<group>"; };
+		D729E1A21D768DED00358501 /* RxRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxRegisterViewController.swift; path = ViewControllers/RxRegisterViewController.swift; sourceTree = "<group>"; };
+		D73BE7C91D76D16E00E1C041 /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextField.swift; path = Extensions/UITextField.swift; sourceTree = "<group>"; };
+		D73BE7CB1D76DA7E00E1C041 /* RxFireBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxFireBaseManager.swift; path = NetworkManagers/RxFireBaseManager.swift; sourceTree = "<group>"; };
+		D743EC6B1D74499500B73860 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButton.swift; path = Extensions/UIButton.swift; sourceTree = "<group>"; };
 		D7888A971D703CB80043944B /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = Extensions/UIView.swift; sourceTree = "<group>"; };
 		D7888A991D704A7C0043944B /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Extensions/String.swift; sourceTree = "<group>"; };
 		D788983C1D6FEAB400F4A472 /* NSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSURL.swift; path = Extensions/NSURL.swift; sourceTree = "<group>"; };
@@ -52,7 +63,6 @@
 		D79BCF071D6ECB3A00A9CE5B /* 1770040300_2031329_l.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1770040300_2031329_l.mp3; sourceTree = "<group>"; };
 		D79BCF081D6ECB3A00A9CE5B /* 1770059653_2050944_l.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1770059653_2050944_l.mp3; sourceTree = "<group>"; };
 		D79BCF091D6ECB3A00A9CE5B /* 1771694697_4194836_l.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1771694697_4194836_l.mp3; sourceTree = "<group>"; };
-		D79BCF0E1D6ECB4200A9CE5B /* music_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = music_list.json; sourceTree = "<group>"; };
 		D79BCF141D6ECEAC00A9CE5B /* RxBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxBaseViewController.swift; path = ViewControllers/RxBaseViewController.swift; sourceTree = "<group>"; };
 		D79BCF171D6ECEED00A9CE5B /* Music.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Music.storyboard; path = Storyboards/Music.storyboard; sourceTree = "<group>"; };
 		D79BCF191D6ECF4F00A9CE5B /* RxMusicListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxMusicListViewController.swift; path = ViewControllers/RxMusicListViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +140,7 @@
 				D79BCF101D6ECDC400A9CE5B /* Application */,
 				D79BCF041D6ECAF600A9CE5B /* Resources */,
 				D79BCEFB1D6EC8FE00A9CE5B /* LaunchScreen.storyboard */,
+				D729E19E1D768A7400358501 /* GoogleService-Info.plist */,
 				D79BCEFE1D6EC8FE00A9CE5B /* Info.plist */,
 			);
 			path = RxMusicPlayer;
@@ -138,7 +149,6 @@
 		D79BCF041D6ECAF600A9CE5B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D79BCF0E1D6ECB4200A9CE5B /* music_list.json */,
 				D79BCF051D6ECB2B00A9CE5B /* Music */,
 				D79BCEF91D6EC8FE00A9CE5B /* Assets.xcassets */,
 			);
@@ -170,6 +180,8 @@
 				D79BCF141D6ECEAC00A9CE5B /* RxBaseViewController.swift */,
 				D79BCF191D6ECF4F00A9CE5B /* RxMusicListViewController.swift */,
 				D79BCF2F1D6EF6B400A9CE5B /* RxMusicDetailViewController.swift */,
+				D729E1A01D768BB300358501 /* RxLoginViewController.swift */,
+				D729E1A21D768DED00358501 /* RxRegisterViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -220,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				D79BCF281D6EDD6900A9CE5B /* RxMockyJSON.swift */,
+				D73BE7CB1D76DA7E00E1C041 /* RxFireBaseManager.swift */,
 			);
 			name = NetworkManagers;
 			sourceTree = "<group>";
@@ -240,6 +253,8 @@
 				D788983C1D6FEAB400F4A472 /* NSURL.swift */,
 				D7888A971D703CB80043944B /* UIView.swift */,
 				D7888A991D704A7C0043944B /* String.swift */,
+				D743EC6B1D74499500B73860 /* UIButton.swift */,
+				D73BE7C91D76D16E00E1C041 /* UITextField.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -280,6 +295,11 @@
 				TargetAttributes = {
 					D79BCEEE1D6EC8FD00A9CE5B = {
 						CreatedOnToolsVersion = 7.3.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -307,10 +327,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D79BCF181D6ECEED00A9CE5B /* Music.storyboard in Resources */,
+				D729E19F1D768A7400358501 /* GoogleService-Info.plist in Resources */,
 				D79BCEFD1D6EC8FE00A9CE5B /* LaunchScreen.storyboard in Resources */,
 				D79BCF0A1D6ECB3A00A9CE5B /* asd.mp3 in Resources */,
 				D79BCF0B1D6ECB3A00A9CE5B /* 1770040300_2031329_l.mp3 in Resources */,
-				D79BCF0F1D6ECB4200A9CE5B /* music_list.json in Resources */,
 				D79BCF0D1D6ECB3A00A9CE5B /* 1771694697_4194836_l.mp3 in Resources */,
 				D79BCEFA1D6EC8FE00A9CE5B /* Assets.xcassets in Resources */,
 				D79BCF0C1D6ECB3A00A9CE5B /* 1770059653_2050944_l.mp3 in Resources */,
@@ -374,21 +394,26 @@
 			files = (
 				D7888A981D703CB80043944B /* UIView.swift in Sources */,
 				D78898411D6FF8A100F4A472 /* RxTrack.swift in Sources */,
+				D73BE7CA1D76D16E00E1C041 /* UITextField.swift in Sources */,
 				D788983D1D6FEAB400F4A472 /* NSURL.swift in Sources */,
+				D73BE7CC1D76DA7E00E1C041 /* RxFireBaseManager.swift in Sources */,
 				D79BCF201D6ED56700A9CE5B /* Constants.swift in Sources */,
 				D79BCEF31D6EC8FE00A9CE5B /* AppDelegate.swift in Sources */,
 				D79BCF1A1D6ECF4F00A9CE5B /* RxMusicListViewController.swift in Sources */,
 				D79BCF301D6EF6B400A9CE5B /* RxMusicDetailViewController.swift in Sources */,
+				D729E1A31D768DED00358501 /* RxRegisterViewController.swift in Sources */,
 				D79BCF291D6EDD6900A9CE5B /* RxMockyJSON.swift in Sources */,
 				D79BCF371D6F045000A9CE5B /* Operators.swift in Sources */,
 				D79BCF261D6EDC1A00A9CE5B /* RxMusicModel.swift in Sources */,
 				D79BCF331D6F01BC00A9CE5B /* RxMusicViewModel.swift in Sources */,
 				D79BCF231D6ED67D00A9CE5B /* RxMusic.swift in Sources */,
 				D79BCF381D6F045000A9CE5B /* ObservableType.swift in Sources */,
+				D729E1A11D768BB300358501 /* RxLoginViewController.swift in Sources */,
 				D79BCF2C1D6EE74500A9CE5B /* RxMusicIndicator.swift in Sources */,
 				D7888A9A1D704A7C0043944B /* String.swift in Sources */,
 				D79BCF1D1D6ED43F00A9CE5B /* RxMusicViewCell.swift in Sources */,
 				D79BCF151D6ECEAC00A9CE5B /* RxBaseViewController.swift in Sources */,
+				D743EC6C1D74499500B73860 /* UIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,7 +520,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RxMusicPlayer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = beomap.testing.RxMusicPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -508,7 +533,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RxMusicPlayer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = beomap.testing.RxMusicPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
